@@ -1,4 +1,5 @@
 #include<stdio.h>
+
 int main ()
 {
     /*int x;
@@ -126,13 +127,52 @@ int main ()
     }
     printf("%d",sum);*/
 
-    int x,y, count = 1 ;
+
+    /*14.Write a program to get a number from user and interchange the first and last digits and print the result.
+    int x,y,z=1,a,b=1;
     scanf("%d",&x);
-    loop: if(x>0)
+    y =x;
+    a=x%10;
+    loop: if(x>=10)
     {
-        
+        b = b*10;
+        x = x/10;
         goto loop;
     }
-    
+    int g = (y%b)/10;
+    printf("%d",a*b+g*10+x);*/
 
+
+    /*Write a program to get a number from user and if the last digit of the number is even print the same number. If the last digit of the number is odd, then subtract 1 from the last digit and print the number. (Note: Last digit -MSB)
+    int n ,c=1;
+    scanf("%d",&n);
+    int m =n ;
+    loop: if(n>=10)
+    {
+        n=n/10;
+        c= c*10;
+        goto loop;
+    }
+    if(m%2==0) printf("%d",m);
+    else printf("%d",(n-1)*c+m%c);  
+    */
+
+   /* int n ;
+    scanf("%d",&n);
+    int m =2,c=0;
+    loop : if (n%m==0){
+        c=1;
+        goto X;
+    }
+    if(n!=m+1){m++;goto loop;}
+    else goto X;
+    X:
+    if(c==1){
+        printf("Not prime");
+    }
+    else {
+        printf("Prime");
+    }*/
+
+    
 }
