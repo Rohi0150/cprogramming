@@ -1,5 +1,5 @@
 #include <stdio.h>
-int main() {
+void disp_total_2digit(){
     int a, b, c, d;
     c = 0;
     scanf("%d", &a);
@@ -12,5 +12,7 @@ int main() {
         d = d / 10;
     }
     printf("%d\n", c);
-    return 0;
+}
+int main() {
+    disp_total_2digit();
 }

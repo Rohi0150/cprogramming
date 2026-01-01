@@ -1,6 +1,5 @@
 #include <stdio.h>
-
-int main() {
+void disp_2digit_square(){
     int x;
     scanf("%d", &x);
     int y = x, a = 1;
@@ -22,5 +21,8 @@ int main() {
         d = d * 10;
     }
     printf("%d", count);
+}
+int main() {
+    disp_2digit_square();
     return 0;
 }
