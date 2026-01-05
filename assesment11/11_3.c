@@ -5,13 +5,13 @@ Function Name: arrange_ascend
 Answer: 1 2 3 4 5*/
 #include <stdio.h>
 void arrange_ascend(int* ptr){
-    while (*ptr < 6){
-        printf("%d ",*ptr);
-        *ptr = *ptr +1 ;
-    }
+    *ptr = *ptr +1 ;
 }
 int main(){
     int n =1 ;
     int *ptr = &n;
+    while (*ptr < 6){
+    printf("%d ",*ptr);
     arrange_ascend(ptr);
+    }
 }
