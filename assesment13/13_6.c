@@ -1,17 +1,14 @@
 /*Question:
-Write a program create a stack using linked list. Use
-push & Pop. Push will insert the entry in top of
-the list. Pop will get top of the list and display.
-Display will show from top to bottom.
+Write a program to create a queue using a linked list.
+Use add and remove. Add will insert the entry at
+the top of the list. Remove will get the bottom of
+the list and display. The display will show from
+top to bottom.
 Menu Items
-1. Push
-2. Pop
+1. Add
+2. Remove
 3. Display Stack
 4. Exit*/
-/*
-Inserting at start ~ O(1);
-Deleting at start ~ o(1)
-*/
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct student
@@ -24,13 +21,14 @@ typedef struct student
 
 int main(){
     st *head = NULL;
+    st *rear = NULL;
     int x;
     while(1){
-        printf("1.Push\n2.Pop\n3.DISPLAY\n4.EXIT\n");
+        printf("1.Add\n2.Remove\n3.DISPLAY\n4.EXIT\n");
         scanf("%d",&x);
         if(x==1){
             st * temp = (st *)malloc (sizeof(st));
-            temp->next=NULL;
+            st * new = (st *)malloc (sizeof(st));
             printf("Roll :");
             scanf("%d",&temp->id);
             printf("Math:");
@@ -38,14 +36,21 @@ int main(){
             printf("SCI :");
             scanf("%d",&temp->Science);
 
-            temp->next=head;
-            head = temp;
+            if(head==NULL && rear ==NULL){
+                head = temp;
+                rear = temp;
+            }
+            else{
+                rear ->next = temp;
+                rear = temp;
+            }
 
         }
         else if (x==2){
             st * temp = (st *)malloc (sizeof(st));
-            temp=head->next;
-            head=temp;
+            temp=head;
+            head = head->next;
+            free(temp);
         }
         else if(x==3){
             st* temp = head;
@@ -58,6 +63,7 @@ int main(){
                 printf("%d\n",temp->Science);
                 temp=temp->next;
             }
+            
             printf("Roll :");
             printf("%d ",temp->id);
             printf("Math :");
@@ -68,53 +74,3 @@ int main(){
         else break;
     }
 }
-/*Sample output:
-1.Push
-2.Pop
-3.DISPLAY
-4.EXIT
-1
-Roll :10
-Math:50
-SCI :60
-1.Push
-2.Pop
-3.DISPLAY
-4.EXIT
-1
-Roll :20
-Math:60
-SCI :50
-1.Push
-2.Pop
-3.DISPLAY
-4.EXIT
-1
-Roll :30
-Math:50
-SCI :80
-1.Push
-2.Pop
-3.DISPLAY
-4.EXIT
-3
-Roll :30 Math :50 SCI :80
-Roll :20 Math :60 SCI :50
-Roll :10 Math :50 SCI :60
-1.Push
-2.Pop
-3.DISPLAY
-4.EXIT
-2
-1.Push
-2.Pop
-3.DISPLAY
-4.EXIT
-3
-Roll :20 Math :60 SCI :50
-Roll :10 Math :50 SCI :60
-1.Push
-2.Pop
-3.DISPLAY
-4.EXIT   
-*/
