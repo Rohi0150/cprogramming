@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 int board[8][8] = {0};
-int solutions = 0;
 int check(int row, int col)
 {
     int i,j=col; 
@@ -17,7 +16,7 @@ int check(int row, int col)
     return 1;
 }
 
-void placeQueen(int row)
+void placement(int row)
 {
 
     if (row==8)
@@ -43,7 +42,7 @@ void placeQueen(int row)
         if (check(row,col))
         {
             board[row][col]=1;   
-            placeQueen(row+1);   
+            placement(row+1);   
             board[row][col]=0;   
         }
     }
@@ -51,6 +50,6 @@ void placeQueen(int row)
 
 int main()
 {
-    placeQueen(0);
+    placement(0);
     return 0;
 }
